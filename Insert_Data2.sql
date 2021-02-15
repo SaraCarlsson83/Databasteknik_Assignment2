@@ -53,12 +53,12 @@ insert into Community(com_name) values
 ('Stockholm'), ('Malmö'), ('Göteborg');
 
 alter table Customer auto_increment = 10;
-insert into Customer(first_name, last_name, Adress, Community_id) values
-('Agaton', 'Sax', 'Sveavägen', 21),
-('Kalle', 'Anka', 'Ankeborgsvägen', 22),
-('Musse', 'Pigg', 'Svansvägen', 20),
-('Nalle', 'Puh', 'Trädet', 22),
-('Mimmi', 'Pigg', 'Svansvägen', 20);
+insert into Customer(first_name, last_name, user_name, password, Adress, Community_id) values
+('Agaton', 'Sax', 'AgatonSax', 'AgatonSax', 'Sveavägen', 21),
+('Kalle', 'Anka', 'KalleAnka', 'KalleAnka', 'Ankeborgsvägen', 22),
+('Musse', 'Pigg', 'MussePigg', 'MussePigg', 'Svansvägen', 20),
+('Nalle', 'Puh', 'NallePuh', 'NallePuh', 'Trädet', 22),
+('Mimmi', 'Pigg', 'MimmiPigg', 'MimmiPigg', 'Svansvägen', 20);
 
 alter table Orders auto_increment = 110;
 insert into Orders(date, Customer_id) values

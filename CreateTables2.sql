@@ -7,7 +7,8 @@ id int not null auto_increment,
 com_name varchar(50) not null, 
 primary key(id),
 created timestamp default current_timestamp, 
-lastupdate timestamp default current_timestamp on update current_timestamp);
+lastupdate timestamp default current_timestamp on update current_timestamp,
+unique(com_name));
 
 create table Price(
 id int not null auto_increment, 
@@ -21,14 +22,16 @@ id int not null auto_increment,
 col_name varchar(50) not null, 
 primary key(id),
 created timestamp default current_timestamp, 
-lastupdate timestamp default current_timestamp on update current_timestamp);
+lastupdate timestamp default current_timestamp on update current_timestamp, 
+unique(col_name));
 
 create table Label(
 id int not null auto_increment, 
 label_name varchar(50) not null, 
 primary key(id),
 created timestamp default current_timestamp, 
-lastupdate timestamp default current_timestamp on update current_timestamp);
+lastupdate timestamp default current_timestamp on update current_timestamp, 
+unique(label_name));
 
 create table Rating_Alternatives(
 id int not null auto_increment, 
@@ -43,18 +46,22 @@ id int not null auto_increment,
 cat_name varchar(50) not null, 
 primary key(id),
 created timestamp default current_timestamp, 
-lastupdate timestamp default current_timestamp on update current_timestamp);
+lastupdate timestamp default current_timestamp on update current_timestamp, 
+unique(cat_name));
 
 create table Customer(
 id int not null auto_increment, 
 First_Name varchar(50) not null, 
 Last_Name varchar(50) not null, 
+User_Name varchar(50) not null, 
+Password varchar(50) not null, 
 Adress varchar(50) not null, 
 Community_id int not null,
 primary key(id),
 foreign key (Community_id) references Community(id),
 created timestamp default current_timestamp, 
-lastupdate timestamp default current_timestamp on update current_timestamp);
+lastupdate timestamp default current_timestamp on update current_timestamp, 
+unique(User_name));
 
 create table Size(
 id int not null auto_increment, 
@@ -68,7 +75,8 @@ id int not null auto_increment,
 Shoe_name varchar(50) not null,
 primary key(id),
 created timestamp default current_timestamp, 
-lastupdate timestamp default current_timestamp on update current_timestamp);
+lastupdate timestamp default current_timestamp on update current_timestamp, 
+unique(shoe_name));
 
  
 create table Shoe(
