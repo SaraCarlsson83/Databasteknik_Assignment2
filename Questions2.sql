@@ -17,10 +17,30 @@ delimiter ;
 
 select average_rate(40);
 
+delimiter //
+create function getTextRating (numberRating double)
+returns varchar(50)
+reads sql data
+begin
+if numberRating > 0 and numberRating <= 1.5
+then return 'Missnöjd';
+elseif numberRating > 1.5 and numberRating <= 2.5
+then return 'Ganska nöjd';
+elseif numberRating > 2.5 and numberRating <= 3.5
+then return 'Nöjd';
+elseif numberRating > 3.5 and numberRating <= 4
+then return 'Mycket nöjd';
+end if;
+end//
+
+delimiter ;
+
+select getTextRating(1.6);
+
 
 drop view all_averageRates;
 create view all_averageRates as 
-select label.label_name, name.shoe_name, size.size_name, avg(rating_alternatives.rating_numbers) from shoe
+select label.label_name, name.shoe_name, size.size_name, avg(rating_alternatives.rating_numbers), getTextRating(avg(rating_alternatives.rating_numbers)) from shoe
 left join label on label.id = shoe.label_id
 left join name on name.id = shoe.Name_id
 left join size on size.id = shoe.Size_id
