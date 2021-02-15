@@ -51,5 +51,17 @@ group by shoe.id;
 select * from all_averageRates;
 select*from shoe;
 
+-- Stored procedure "Rate" som lägger till ett betyg och en kommentar på en specifik produkt för en specifik kund
+delimiter //
+CREATE PROCEDURE `Rate`(procedure_rate int, procedure_comment varchar(150), procedure_shoeId int, procedure_customerId int)
+BEGIN
+declare rateId int default 0;
+select rating_alternatives.id from rating_alternatives where rating_alternatives.rating_numbers = procedure_rate into rateId; 
+insert into rating (RatingAlternatives_id, Comment, Shoe_id, Customer_id) values (rateId, procedure_comment, procedure_shoeId, procedure_customerId);
+END//
+delimiter ;
+call Rate (3, null, 45, 12);
+select * from rating;
+
 
 
