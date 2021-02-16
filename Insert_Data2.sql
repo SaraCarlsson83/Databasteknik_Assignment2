@@ -21,7 +21,7 @@ insert into name(Shoe_name)
 value ('Tessa'), ('Brooke'), ('Johnny'), ('Percy'), ('Voxna'), ('Yxhult');
  
 alter table shoe AUTO_INCREMENT=40;
-insert into shoe (Label_id, Price_id, Size_id, Name_id, stock) values 
+insert into shoe (Label_id, Price_id, Size_id, Name_id, shoe_stock) values 
 (33,120,150,160, 4), (31,121,153,161, 6), (31,122,151,162, 2), (30,123,152,163, 6), 
 (32,122,154,164, 5), (33,124,156,165, 2), (30,120,157, 162, 1), (32,124,155,160, 5);
 

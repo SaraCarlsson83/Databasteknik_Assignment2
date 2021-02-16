@@ -4,16 +4,17 @@ date datetime not null DEFAULT CURRENT_TIMESTAMP,
 Shoe_id int not null, 
 foreign key (shoe_id) references shoe(id));
 
+-- drop trigger last_shoe;
 Delimiter //
 create trigger last_shoe
 after update
 on shoe
 for each row
 Begin
-	if stock = 0
+	if shoe_stock = 0
 		then 
 			insert into out_of_stock (id) values (old.id);
 	end if;
-End
-//Delimiter ;
+End//
+Delimiter ;
  
