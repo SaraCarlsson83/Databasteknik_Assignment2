@@ -1,15 +1,18 @@
 package Assignment2_java;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Order_includes {
 
     protected int id;
-    protected Orders ordersId;
-    protected Shoe shoeId;
+    protected Orders order;
+    protected List<Shoe> shoeList;
 
-    public Order_includes(int id, Orders ordersId, Shoe shoeId) {
+    public Order_includes(int id, Orders order, List<Shoe> shoeList) {
         this.id = id;
-        this.ordersId = ordersId;
-        this.shoeId = shoeId;
+        this.order = order;
+        shoeList = new ArrayList<>();
     }
 
     public int getId() {
@@ -20,19 +23,19 @@ public class Order_includes {
         this.id = id;
     }
 
-    public Orders getOrdersId() {
-        return ordersId;
+    public Orders getOrder() {
+        return order;
     }
 
-    public void setOrdersId(Orders ordersId) {
-        this.ordersId = ordersId;
+    public void setOrder(Orders order) {
+        this.order = order;
     }
 
-    public Shoe getShoeId() {
-        return shoeId;
+    public List<Shoe> getShoeList() {
+        return shoeList;
     }
 
-    public void setShoeId(Shoe shoeId) {
-        this.shoeId = shoeId;
+    public void addShoe (Shoe shoe){
+        shoeList.add(shoe);
     }
 }

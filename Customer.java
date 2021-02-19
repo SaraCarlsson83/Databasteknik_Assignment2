@@ -8,16 +8,16 @@ public class Customer {
     protected String userName;
     protected String password;
     protected String adress;
-    protected Community communityId;
+    protected Community community;
 
-    public Customer(int id, String firstName, String lastName, String userName, String password, String adress, Community communityId) {
+    public Customer(int id, String firstName, String lastName, String userName, String password, String adress, Community community) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.userName = userName;
         this.password = password;
         this.adress = adress;
-        this.communityId = communityId;
+        this.community = community;
     }
 
     public int getId() {
@@ -68,11 +68,11 @@ public class Customer {
         this.adress = adress;
     }
 
-    public Community getCommunityId() {
-        return communityId;
+    public Community getCommunity() {
+        return community;
     }
 
-    public void setCommunityId(Community communityId) {
-        this.communityId = communityId;
+    public void setCommunity(Community community) {
+        this.community = community;
     }
 }

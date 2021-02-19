@@ -1,15 +1,18 @@
 package Assignment2_java;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Shoe_color {
 
     protected int id;
     protected Shoe shoeId;
-    protected Color colorId;
+    protected List<Color> colorList;
 
-    public Shoe_color(int id, Shoe shoeId, Color colorId) {
+    public Shoe_color(int id, Shoe shoeId, List<Color> colorList) {
         this.id = id;
         this.shoeId = shoeId;
-        this.colorId = colorId;
+        colorList = new ArrayList<>();
     }
 
     public int getId() {
@@ -28,11 +31,11 @@ public class Shoe_color {
         this.shoeId = shoeId;
     }
 
-    public Color getColorId() {
-        return colorId;
+    public List<Color> getColorList() {
+        return colorList;
     }
 
-    public void setColorId(Color colorId) {
-        this.colorId = colorId;
+    public void addColor (Color color){
+        colorList.add(color);
     }
 }

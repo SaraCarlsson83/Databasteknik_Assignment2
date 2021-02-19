@@ -3,18 +3,18 @@ package Assignment2_java;
 public class Shoe {
 
     protected int id;
-    protected Label labelId;
-    protected Price priceId;
-    protected Name nameId;
-    protected Size sizeId;
+    protected Label label;
+    protected Price price;
+    protected Name name;
+    protected Size size;
     protected int shoeStock;
 
-    public Shoe(int id, Label labelId, Price priceId, Name nameId, Size sizeId, int shoeStock) {
+    public Shoe(int id, Label label, Price price, Name name, Size size, int shoeStock) {
         this.id = id;
-        this.labelId = labelId;
-        this.priceId = priceId;
-        this.nameId = nameId;
-        this.sizeId = sizeId;
+        this.label = label;
+        this.price = price;
+        this.name = name;
+        this.size = size;
         this.shoeStock = shoeStock;
     }
 
@@ -26,36 +26,36 @@ public class Shoe {
         this.id = id;
     }
 
-    public Label getLabelId() {
-        return labelId;
+    public Label getLabel() {
+        return label;
     }
 
-    public void setLabelId(Label labelId) {
-        this.labelId = labelId;
+    public void setLabel(Label label) {
+        this.label = label;
     }
 
-    public Price getPriceId() {
-        return priceId;
+    public Price getPrice() {
+        return price;
     }
 
-    public void setPriceId(Price priceId) {
-        this.priceId = priceId;
+    public void setPrice(Price price) {
+        this.price = price;
     }
 
-    public Name getNameId() {
-        return nameId;
+    public Name getName() {
+        return name;
     }
 
-    public void setNameId(Name nameId) {
-        this.nameId = nameId;
+    public void setName(Name name) {
+        this.name = name;
     }
 
-    public Size getSizeId() {
-        return sizeId;
+    public Size getSize() {
+        return size;
     }
 
-    public void setSizeId(Size sizeId) {
-        this.sizeId = sizeId;
+    public void setSize(Size size) {
+        this.size = size;
     }
 
     public int getShoeStock() {

@@ -4,16 +4,16 @@ public class Rating {
 
     protected int id;
     protected String comment;
-    protected Rating_alternatives ratingAlternativesId;
-    protected Shoe shoeId;
-    protected Customer customerId;
+    protected Rating_alternatives ratingAlternatives;
+    protected Shoe shoe;
+    protected Customer customer;
 
-    public Rating(int id, String comment, Rating_alternatives ratingAlternativesId, Shoe shoeId, Customer customerId) {
+    public Rating(int id, String comment, Rating_alternatives ratingAlternatives, Shoe shoe, Customer customer) {
         this.id = id;
         this.comment = comment;
-        this.ratingAlternativesId = ratingAlternativesId;
-        this.shoeId = shoeId;
-        this.customerId = customerId;
+        this.ratingAlternatives = ratingAlternatives;
+        this.shoe = shoe;
+        this.customer = customer;
     }
 
     public int getId() {
@@ -32,27 +32,27 @@ public class Rating {
         this.comment = comment;
     }
 
-    public Rating_alternatives getRatingAlternativesId() {
-        return ratingAlternativesId;
+    public Rating_alternatives getRatingAlternatives() {
+        return ratingAlternatives;
     }
 
-    public void setRatingAlternativesId(Rating_alternatives ratingAlternativesId) {
-        this.ratingAlternativesId = ratingAlternativesId;
+    public void setRatingAlternatives(Rating_alternatives ratingAlternatives) {
+        this.ratingAlternatives = ratingAlternatives;
     }
 
-    public Shoe getShoeId() {
-        return shoeId;
+    public Shoe getShoe() {
+        return shoe;
     }
 
-    public void setShoeId(Shoe shoeId) {
-        this.shoeId = shoeId;
+    public void setShoe(Shoe shoe) {
+        this.shoe = shoe;
     }
 
-    public Customer getCustomerId() {
-        return customerId;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void setCustomerId(Customer customerId) {
-        this.customerId = customerId;
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
     }
 }
