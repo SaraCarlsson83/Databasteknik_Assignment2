@@ -1,6 +1,6 @@
 -- select * from rating;
 -- select * from rating_alternatives;
-drop function if exists average_rate;
+-- drop function if exists average_rate;
 delimiter //
 
 create function average_rate (shoeId int)
@@ -16,7 +16,7 @@ return average;
 end//
 delimiter ;
 
-select average_rate(40) as avg;
+-- select average_rate(40) as avg;
 
 delimiter //
 create function getTextRating (numberRating double)
@@ -38,9 +38,9 @@ end//
 
 delimiter ;
 
-select getTextRating(1.6);
+-- select getTextRating(1.6);
 
-drop view if exists all_averageRates;
+-- drop view if exists all_averageRates;
 create view all_averageRates as 
 select label.label_name, name.shoe_name, size.size_name, avg(rating_alternatives.rating_numbers), getTextRating(avg(rating_alternatives.rating_numbers)) from shoe
 left join label on label.id = shoe.label_id
@@ -49,9 +49,6 @@ left join size on size.id = shoe.Size_id
 left join rating on rating.Shoe_id = shoe.id
 left join rating_alternatives on rating_alternatives.id = rating.RatingAlternatives_id
 group by shoe.id;
-
-select * from all_averageRates;
--- select*from shoe;
 
 -- Stored procedure "Rate" som lägger till ett betyg och en kommentar på en specifik produkt för en specifik kund
 delimiter //
@@ -63,9 +60,6 @@ insert into rating (RatingAlternatives_id, Comment, Shoe_id, Customer_id) values
 END//
 delimiter ;
 call Rate (3, null, 45, 12);
-select * from rating;
-
-select * from orders;
 
 delimiter //
 CREATE PROCEDURE `Rate_Strings`(procedure_rate varchar(50), procedure_comment varchar(150), procedure_shoeId int, procedure_customerId int)
@@ -119,7 +113,7 @@ date datetime not null DEFAULT CURRENT_TIMESTAMP,
 Shoe_id int not null, 
 foreign key (shoe_id) references shoe(id));
 
-drop trigger if exists last_shoe;
+-- drop trigger if exists last_shoe;
 Delimiter //
 create trigger last_shoe
 after update
@@ -131,5 +125,19 @@ Begin
 			insert into out_of_stock (shoe_id) values (old.id);
 	end if;
 End//
+Delimiter ;
+
+Delimiter //
+CREATE PROCEDURE `getLatestOrderId`(userName varchar(50), OUT orderID int)
+BEGIN
+	select orders.id from orders
+    join customer
+    on customer.id = orders.customer_id
+    where customer.user_name = userName
+    order by orders.id desc
+    limit 1 
+    into orderID;
+    
+END//
 Delimiter ;
 
