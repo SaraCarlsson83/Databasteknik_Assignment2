@@ -99,10 +99,11 @@ BEGIN
 			then insert into order_includes(Orders_id, Shoe_id) values(orderTemp, idShoes);
             update shoe set shoe_stock = (shoe_stock)-1 where shoe.id = idShoes;
             select ("Varan har lagts till i ordern") as message;
+            commit;
 		else
 			select ("Varan är tyvärr slut i lagret") as message;
+            rollback;
 		end if;
-    commit;
 END//
 delimiter ;
 
